@@ -48,13 +48,25 @@ body {
     box-sizing: border-box;
     /* background-color: black; */
     border: 1px solid black;
-    /* border-radius: 50%; */
 }
 
 .input-button {
+    /* border: none; */
     background-color: blue;
     flex: 1 0 auto;
-    max-width: 100%;
+    max-width: 90%;
     aspect-ratio: 1;
     border-radius: 50%;
+}
+
+.number-button {
+    background-color: aqua;
+}
+
+.operator-button {
+    background-color: orange;
+}
+
+.input-button:hover {
+    background-color: white;
 }
