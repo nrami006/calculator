@@ -77,15 +77,15 @@ function onClick(event) {
 
     } else if (button.classList.contains("number-button")) {
         // This button is a number button
-        // Initially calculator shows 0. When a number is first input, clear away the 0 first.
-        if (calculatorDisplay.textContent === "0") {
-            calculatorDisplay.textContent = "";
-        }
-
-        else if (clearDisplay) {
+        if (clearDisplay) {
             calculatorDisplay.textContent = "";
             clearDisplay = false;
         }
+        // Initially calculator shows 0. When a number is first input, clear away the 0 first.
+        else if (calculatorDisplay.textContent === "0") {
+            calculatorDisplay.textContent = "";
+        }
+
         // If we are inputting a second number, clear the display first.
         if (beginningRightNum) {
             calculatorDisplay.textContent = "";
