@@ -34,6 +34,15 @@ function operate() {
         default:
             break;
     }
+    if (result == Infinity) {
+        console.log("inf");
+        calculatorDisplay.textContent = "bruh";
+        clearDisplay = true;
+        operator = null;
+        rightNumber = null;
+        leftNumber = null;
+        return;
+    }
     if (result % 1 != 0 && result != null) {
         result = Number(result).toFixed(3);
     }
