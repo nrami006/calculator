@@ -7,10 +7,14 @@ let operator = null;
 let result = null;
 let beginningRightNum = false;
 let firstNumInput = true;
+let clearDisplay = false;
 const calculatorDisplay = document.querySelector("#results");
 
 function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    if (x != null) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    return "";
 }
 
 function operate() {
@@ -37,6 +41,7 @@ function operate() {
     operator = null;
     rightNumber = null;
     leftNumber = null;
+    clearDisplay = true;
 }
 // on click event handler for inputButtons
 function onClick(event) {
@@ -49,6 +54,10 @@ function onClick(event) {
         }
         // set new operator
         operator = button.id;
+        if (operator == "equalsButton") {
+            operate();
+            return;
+        }
         if (leftNumber == null) {
             // Set left number (without commas)
             leftNumber = Number(calculatorDisplay.textContent.replace(/,/g, ""));
@@ -71,6 +80,11 @@ function onClick(event) {
         // Initially calculator shows 0. When a number is first input, clear away the 0 first.
         if (calculatorDisplay.textContent === "0") {
             calculatorDisplay.textContent = "";
+        }
+
+        else if (clearDisplay) {
+            calculatorDisplay.textContent = "";
+            clearDisplay = false;
         }
         // If we are inputting a second number, clear the display first.
         if (beginningRightNum) {
