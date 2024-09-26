@@ -71,8 +71,9 @@ function onClick(event) {
             // Set left number (without commas)
             leftNumber = Number(calculatorDisplay.textContent.replace(/,/g, ""));
             if (result == null) {
-                calculatorDisplay.textContent = "0";
-                firstNumInput = true;
+                // calculatorDisplay.textContent = "0";
+                // firstNumInput = true;
+                clearDisplay = true;
             }
             beginningRightNum = true;
         } else if (rightNumber == null && !beginningRightNum) {
