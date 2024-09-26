@@ -34,8 +34,8 @@ function operate() {
         default:
             break;
     }
-    if (result % 1 != 0) {
-        result = result.toFixed(3);
+    if (result % 1 != 0 && result != null) {
+        result = Number(result).toFixed(3);
     }
     calculatorDisplay.textContent = numberWithCommas(result);
     operator = null;
